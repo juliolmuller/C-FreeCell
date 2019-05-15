@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no" />
+    <meta name="description" content="Freecell Solitaire Card Game for browsers (compatible with touch screen devices)" />
+    <meta name="keywords" content="javascript, freecell javascript, playing cards, solitaire game, web app, web game" />
+    <title>
+      JS Freecell - Solitaire Card Game
+    </title>
+    <!-- Folhas de Estilo -->
+    <link rel="icon" href="./img/favicon.png" />
+    <link rel="apple-touch-icon" href="./img/favicon.png" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Cinzel+Decorative:700" />
+    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/playingcards.css" />
+    <link rel="stylesheet" type="text/css" href="css/FreecellJS.css" />
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.0.1.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="./js/scripts.js"></script>
+  </head>
+  <body>
+    <div id="dialogStart" style="display:none">
+      <div class="title">Freecell Solitaire</div>
+      <div class="hBtnTab">
+        <div><button onclick="window.open('http://cardgameheaven.com/single-player-games/freecell-solitaire.html','_blank')">How To Play</button></div>
+        <div><button id="btnStart" onclick="handleStartBtn()">PLAY</button></div>
+        <div><button onclick="handleOptionsOpen()">Options</button></div>
+      </div>
+    </div>
+
+    <div id="dialogMenu" style="display:none">
+      <div class="bigBtnBar">
+        <button onclick="handleOptionsNewGame()">New Game</button>
+        <button onclick="handleOptionsOpen()">Options</button>
+        <button onclick="$('#dialogMenu').dialog('close');">Resume</button>
+      </div>
+    </div>
+
+    <div id="dialogOptions" style="display:none">
+      <div class="label">Sound</div>
+      <fieldset>
+        <label for="chkOptSound"><input id="chkOptSound" type="checkbox" checked="checked"> Play Sounds</label>
+      </fieldset>
+
+      <div class="label">Table Background</div>
+      <fieldset>
+        <div id="optBkgds" class="tableRows"></div>
+      </fieldset>
+
+      <div style="margin:20px 0 0 0;">
+        <button class="coolBtn small" onclick="handleOptionsClose()">Close</button>
+      </div>
+    </div>
+
+    <div id="dialogYouWon" style="display:none">
+      <div class="bigText">WINNER!!!</div>
+      <div class="bigBtnBar"><button onclick="$('#dialogYouWon').dialog('close'); doFillBoard();">Play Again</button></div>
+    </div>
+
+    <div id="playArea">
+      <div id="topArea">
+        <div id="cardFoun" style="width:45%">
+          <div id="cardFounCont">
+            <div><div id="cardFoun1" class="slot"><h1>A</h1></div></div>
+            <div><div id="cardFoun2" class="slot"><h1>A</h1></div></div>
+            <div><div id="cardFoun3" class="slot"><h1>A</h1></div></div>
+            <div><div id="cardFoun4" class="slot"><h1>A</h1></div></div>
+          </div>
+        </div>
+        <div id="gameTitle" style="width:10%">
+          <div><div class="red">♥</div><div class="blk">♠</div></div>
+          <div id="title">FREECELL</div>
+          <div><div class="blk">♣</div><div class="red">♦</div></div>
+          <button id="btnMenu" onclick="handleMenuBtn()">MENU</button>
+        </div>
+        <div id="cardOpen" style="width:45%">
+          <div id="cardOpenCont">
+            <div><div id="cardOpen1" class="slot"></div></div>
+            <div><div id="cardOpen2" class="slot"></div></div>
+            <div><div id="cardOpen3" class="slot"></div></div>
+            <div><div id="cardOpen4" class="slot"></div></div>
+          </div>
+        </div>
+      </div>
+      <div id="cardCasc">
+        <div id="cardCasc1"></div>
+        <div id="cardCasc2"></div>
+        <div id="cardCasc3"></div>
+        <div id="cardCasc4"></div>
+        <div id="cardCasc5"></div>
+        <div id="cardCasc6"></div>
+        <div id="cardCasc7"></div>
+        <div id="cardCasc8"></div>
+      </div>
+    </div>
+  </body>
+</html>
