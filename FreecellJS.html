@@ -22,22 +22,23 @@
     <script src="https://code.jquery.com/jquery-migrate-3.0.1.min.js"></script>
     <script type="text/javascript" src="./js/jquery.ui.touch-punch.min.js"></script>
     <script type="text/javascript" src="./js/scripts.js"></script>
+    <script type="text/javascript" src="./js/events.js"></script>
   </head>
   <body>
     <div id="dialogStart" style="display:none">
       <div class="title">Freecell Solitaire</div>
       <div class="hBtnTab">
-        <div><button onclick="window.open('http://cardgameheaven.com/single-player-games/freecell-solitaire.html','_blank')">How To Play</button></div>
-        <div><button id="btnStart" onclick="handleStartBtn()">PLAY</button></div>
-        <div><button onclick="handleOptionsOpen()">Options</button></div>
+        <div><button onclick="handleHowToPlayBtn()">How To Play</button></div>
+        <div><button onclick="handleStartBtn()" id="btnStart">PLAY</button></div>
+        <div><button onclick="toggleOptionsButton()">Options</button></div>
       </div>
     </div>
 
-    <div id="dialogMenu" style="display:none">
+    <div id="dialogPause" style="display:none">
       <div class="bigBtnBar">
-        <button onclick="handleOptionsNewGame()">New Game</button>
-        <button onclick="handleOptionsOpen()">Options</button>
-        <button onclick="$('#dialogMenu').dialog('close');">Resume</button>
+        <button onclick="handleNewGameBtn()">New Game</button>
+        <button onclick="toggleOptionsButton()">Options</button>
+        <button onclick="togglePauseDialog()">Resume</button>
       </div>
     </div>
 
@@ -46,14 +47,12 @@
       <fieldset>
         <label for="chkOptSound"><input id="chkOptSound" type="checkbox" checked="checked"> Play Sounds</label>
       </fieldset>
-
       <div class="label">Table Background</div>
       <fieldset>
         <div id="optBkgds" class="tableRows"></div>
       </fieldset>
-
       <div style="margin:20px 0 0 0;">
-        <button class="coolBtn small" onclick="handleOptionsClose()">Close</button>
+        <button class="coolBtn small" onclick="toggleOptionsButton()">Close</button>
       </div>
     </div>
 
@@ -76,7 +75,7 @@
           <div><div class="red">♥</div><div class="blk">♠</div></div>
           <div id="title">FREECELL</div>
           <div><div class="blk">♣</div><div class="red">♦</div></div>
-          <button id="btnMenu" onclick="handleMenuBtn()">MENU</button>
+          <button id="btnMenu" onclick="togglePauseDialog()">MENU</button>
         </div>
         <div id="cardOpen" style="width:45%">
           <div id="cardOpenCont">
