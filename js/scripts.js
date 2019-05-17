@@ -309,58 +309,6 @@ function handleDragStop(event, ui) {
   $('#cardCasc div, #cardCasc span').show().css('visibility', 'visible')
 }
 
-// ==============================================================================================
-
-function handleStartBtn() {
-  // STEP 1:
-  $('#dialogStart').dialog('close')
-
-  // STEP 2: iOS requires a touch event before any type of audio can be played, then everything will work as normal
-  // SOLN: A: play a dummy sound (https://paulbakaus.com/tutorials/html5/web-audio-on-ios/)
-  // ....: B: play a real startup sound when applicable (this is our case)
-  if (gGameOpts.sound) playSound(gGameSounds.cardShuffle)
-
-  // STEP 3: Fill board
-  doRespConfig()
-  doFillBoard()
-}
-
-function handleMenuBtn() {
-  $('#dialogMenu').dialog('open')
-  $('#dialogMenu button').blur()
-}
-
-function handleOptionsNewGame() {
-  // STEP 1: UX/UI Update
-  if (gGameOpts.sound) playSound(gGameSounds.sadTrombone)
-
-  // STEP 2: Close dialog
-  $('#dialogMenu').dialog('close')
-
-  // STEP 3: Clear/Fill board
-  doFillBoard()
-}
-
-function handleOptionsOpen() {
-  // STEP 1: Update UI options
-  $('#chkOptSound').prop('checked', gGameOpts.sound)
-
-  // LAST: Open dialog
-  $('#dialogOptions').dialog('open')
-}
-
-function handleOptionsClose() {
-  // STEP 1: Update game options
-  gGameOpts.sound = $('#chkOptSound').prop('checked')
-
-  // STEP 2: Set background
-  var strBkgdUrl = $('input[type="radio"][name="radBkgd"]:checked').data('url')
-  if (strBkgdUrl) $('body').css('background', 'url("' + strBkgdUrl + '")')
-
-  // LAST: Close dialog
-  $('#dialogOptions').dialog('close')
-}
-
 function playSound(objSound) {
   // SRC: http://www.html5rocks.com/en/tutorials/webaudio/intro/
 
@@ -591,7 +539,7 @@ function appStart() {
     width: ($(window).innerWidth() * 0.6),
     height: ($(window).innerHeight() * 0.5)
   })
-  $('#dialogMenu').dialog({
+  $('#dialogPause').dialog({
     modal: true,
     autoOpen: false,
     draggable: false,
