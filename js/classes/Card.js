@@ -1,14 +1,19 @@
 
+/**
+ * Class to encapsulate an object of card.
+ * @class
+ * @author Julio Muller & Aurelio Matsunaga
+ * @version 1.0.1
+ */
 class Card {
 
   /**
+   * Instance an object of card.
    * @param {string} value Card Value.
    * @param {string} suit Card suit.
-   * @param {Card} next If in a stack, indicates the next card.
    */
-  constructor(value, suit, next = null) {
+  constructor(value, suit) {
     this.value = value
     this.suit = suit
-    this.next = next
   }
 }

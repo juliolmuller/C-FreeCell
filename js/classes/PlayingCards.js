@@ -1,15 +1,21 @@
 
-const VALUES = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
-const SUITS = ['&diams;', '&spades;', '&hearts;', '&clubs;']
-
+/**
+ * Class to build a stack of cards and individual resources.
+ * @class
+ * @author Julio Muller & Aurelio Matsunaga
+ * @version 1.1.0
+ */
 class PlayingCards extends Stack {
 
   /**
-   * @param {number} quantitySets Quantidade de baralhos da partida.
+   * Instances an object of stack of cards.
+   * @constructor
    */
-  constructor(quantitySets = 1) {
-    this.cards = this.items
-    this.quantityCards = 52 * quantitySets
+  constructor() {
+    super()
+    this.VALUES = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
+    this.SUITS = ['&diams;', '&spades;', '&hearts;', '&clubs;']
+    this.quantityCards = 52
     this.shuffle()
   }
 
@@ -19,8 +25,8 @@ class PlayingCards extends Stack {
   shuffle() {
     this.cards = {}
     let cards = new Array(this.quantityCards)
-    for (let suit of SUITS) {
-      for (let value of VALUES) {
+    for (let suit of this.SUITS) {
+      for (let value of this.VALUES) {
         while (true) {
           let random = Math.floor(Math.random() * this.quantityCards)
           if (!cards[random]) {
