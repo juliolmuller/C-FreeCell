@@ -1,8 +1,7 @@
 
 # JS FreeCell Game
 
-- **Originally developed by:** [Brent Ely](https://github.com/gitbrent/FreecellJS)
-- **Modified & adapted by:** [Aurelio Matsunaga](https://github.com/aureliomatsunaga) & [Julio L. Muller](https://github.com/juliolmuller)
+- **Develepoled by:** [Aurelio Matsunaga](https://github.com/aureliomatsunaga) & [Julio L. Muller](https://github.com/juliolmuller)
 - **Released on:** Jun 6, 2019
 - **Updated on:** May 15, 2019
 - **Latest version:** 0.1.0

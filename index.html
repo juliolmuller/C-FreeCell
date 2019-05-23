@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Julio L. Muller" />
+    <meta name="description" content="Freecell Solitaire Card Game for browsers" />
+    <meta name="keywords" content="javascript, freecell javascript, playing cards, solitaire game, web app, web game" />
+    <!-- Page Title -->
+    <title>
+      FreeNeves JS - A Freecell Solitaire Card Game
+    </title>
+    <!-- Style Sheets -->
+    <link rel="icon" href="./img/favicon.png" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script src="./js/classes/Stack.js"></script>
+    <script src="./js/classes/Card.js"></script>
+    <script src="./js/classes/PlayingCards.js"></script>
+    <script src="./js/classes/Deck.js"></script>
+    <script src="./js/angular/application.js"></script>
+    <script src="./js/angular/controller.js"></script>
+    <script src="./js/angular/components/card.js"></script>
+  </head>
+  <body ng-app="myApplication" ng-controller="myController as ctrl">
+    <div>
+      <div class="row">
+        <!-- <h1>{{ ctrl.hello }}</h1> -->
+        <div class="col-sm-5">
+          <div class="row">
+            <div class="col-xs-3"></div>
+            <div class="col-xs-3"></div>
+            <div class="col-xs-3"></div>
+            <div class="col-xs-3"></div>
+          </div>
+          <div class="row">
+            <div class="col-xs-3"></div>
+            <div class="col-xs-3"></div>
+            <div class="col-xs-3"></div>
+            <div class="col-xs-3"></div>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="col-xs-2"></div>
+          <div class="col-xs-8"></div>
+          <div class="col-xs-2"></div>
+        </div>
+        <div class="col-sm-5">
+          <div class="row">
+            <div class="col-xs-3"></div>
+            <div class="col-xs-3"></div>
+            <div class="col-xs-3"></div>
+            <div class="col-xs-3"></div>
+          </div>
+          <div class="row">
+            <div class="col-xs-3"></div>
+            <div class="col-xs-3"></div>
+            <div class="col-xs-3"></div>
+            <div class="col-xs-3"></div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-1">
+          <div class="col-xs-12"></div>
+        </div>
+        <div class="col-xs-1">
+          <div class="col-xs-12"></div>
+        </div>
+        <div class="col-xs-1">
+          <div class="col-xs-12"></div>
+        </div>
+        <div class="col-xs-1">
+          <div class="col-xs-12"></div>
+        </div>
+        <div class="col-xs-1">
+          <div class="col-xs-12"></div>
+        </div>
+        <div class="col-xs-1">
+          <div class="col-xs-12"></div>
+        </div>
+        <div class="col-xs-1">
+          <div class="col-xs-12"></div>
+        </div>
+        <div class="col-xs-1">
+          <div class="col-xs-12"></div>
+        </div>
+        <div class="col-xs-2"></div>
+      </div>
+      <div class="row">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-1">
+          <div class="col-xs-12"></div>
+        </div>
+        <div class="col-xs-1">
+          <div class="col-xs-12"></div>
+        </div>
+        <div class="col-xs-1">
+          <div class="col-xs-12"></div>
+        </div>
+        <div class="col-xs-1">
+          <div class="col-xs-12"></div>
+        </div>
+        <div class="col-xs-1">
+          <div class="col-xs-12"></div>
+        </div>
+        <div class="col-xs-1">
+          <div class="col-xs-12"></div>
+        </div>
+        <div class="col-xs-1">
+          <div class="col-xs-12"></div>
+        </div>
+        <div class="col-xs-1">
+          <div class="col-xs-12"></div>
+        </div>
+        <div class="col-xs-2"></div>
+      </div>
+    </div>
+  </body>
+</html>
