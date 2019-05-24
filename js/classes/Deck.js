@@ -3,7 +3,7 @@
  * Class to build a complete deck of playing cards required for a game.
  * @class
  * @author Julio Muller & Aurelio Matsunaga
- * @version 1.0.0
+ * @version 1.0.2
  */
 class Deck extends PlayingCards {
 
@@ -20,19 +20,19 @@ class Deck extends PlayingCards {
    * Randomly shuffle the cards in the stack of playing cards.
    */
   shuffle() {
-    this.cards = {}
-    let cards = new Array(this.quantityCards)
-    for (let suit of this.SUITS) {
-      for (let value of this.VALUES) {
+    this.items = undefined
+    const cards = new Array(this.quantityCards)
+    this.SUITS.forEach(suit => {
+      this.VALUES.forEach(value => {
         while (true) {
           let random = Math.floor(Math.random() * this.quantityCards)
           if (!cards[random]) {
             cards[random] = new Card(value, suit)
-            this.push(cards[random])
             break
           }
         }
-      }
-    }
+      })
+    })
+    cards.forEach(card => this.push(card))
   }
 }
