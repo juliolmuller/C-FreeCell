@@ -21,8 +21,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
     <script src="./js/classes/Stack.js"></script>
     <script src="./js/classes/Card.js"></script>
-    <script src="./js/classes/PlayingCards.js"></script>
     <script src="./js/classes/Deck.js"></script>
+    <script src="./js/scripts.js"></script>
     <script src="./js/angular/application.js"></script>
     <script src="./js/angular/controller.js"></script>
     <script src="./js/angular/components/card.js"></script>
@@ -36,27 +36,25 @@
 
         <!-- Free cells -->
         <div class="col-sm-4">
-          <div class="col-xs-3" ng-repeat="freeCell in ctrl.freeCells">
+          <div class="col-xs-3" ng-repeat="stack in ctrl.freeCells">
             <div class="my-stack">
-              <button type="button" class="btn btn-default" ng-click="ctrl.select(stack)" ng-show="!ctrl.isSelected">SELECT</button>
-              <button type="button" class="btn btn-primary" ng-click="ctrl.select(stack)" ng-show="ctrl.isSelected">PLACE</button>
-              <button type="button" class="btn btn-danger" ng-click="ctrl.select(stack)" ng-show="ctrl.isSelected">CANCEL</button>
-              <card model="freeCell" value="freeCell.value" suit="freeCell.suit"></card>
+              <button type="button" class="btn btn-default" ng-click="ctrl.select($index, 'freecell')" ng-show="!ctrl.isSelected" ng-disabled="ctrl.isEmpty(stack, true)">SELECT</button>
+              <button type="button" class="btn btn-primary" ng-click="ctrl.place($index, 'freecell')" ng-show="ctrl.isSelected" ng-disabled="!ctrl.isEmpty(stack, true)">PLACE</button>
+              <card value="ctrl.lastOf(stack).value" suit="ctrl.lastOf(stack).suit" is-cell="true"></card>
             </div>
           </div>
         </div>
 
         <!-- Center -->
-        <div class="col-sm-2"></div>
+        <div class="col-sm-2 my-logo"></div>
 
         <!-- Deposit cells -->
         <div class="col-sm-4">
-          <div class="col-xs-3" ng-repeat="deposit in ctrl.deposits">
+          <div class="col-xs-3" ng-repeat="stack in ctrl.deposits">
             <div class="my-stack">
-              <button type="button" class="btn btn-default" ng-click="ctrl.select(stack)" ng-show="!ctrl.isSelected">SELECT</button>
-              <button type="button" class="btn btn-primary" ng-click="ctrl.select(stack)" ng-show="ctrl.isSelected">PLACE</button>
-              <button type="button" class="btn btn-danger" ng-click="ctrl.select(stack)" ng-show="ctrl.isSelected">CANCEL</button>
-              <card model="deposit" value="deposit.value" suit="deposit.suit"></card>
+              <button type="button" class="btn btn-default" ng-click="ctrl.select($index, 'deposit')" ng-show="!ctrl.isSelected" ng-disabled="ctrl.isEmpty(stack, true)">SELECT</button>
+              <button type="button" class="btn btn-primary" ng-click="ctrl.place($index, 'deposit')" ng-show="ctrl.isSelected" ng-disabled="!ctrl.isEmpty(stack, true)">PLACE</button>
+              <card value="ctrl.lastOf(stack).value" suit="ctrl.lastOf(stack).suit" is-cell="true"></card>
             </div>
           </div>
         </div>
@@ -66,10 +64,9 @@
       <div class="row">
         <div class="col-xs-2"></div>
         <div class="my-stack col-xs-1" ng-repeat="stack in ctrl.stacks">
-          <button type="button" class="btn btn-default" ng-click="ctrl.select(stack)" ng-show="!ctrl.isSelected">SELECT</button>
-          <button type="button" class="btn btn-primary" ng-click="ctrl.select(stack)" ng-show="ctrl.isSelected">PLACE</button>
-          <button type="button" class="btn btn-danger" ng-click="ctrl.select(stack)" ng-show="ctrl.isSelected">CANCEL</button>
-          <card ng-repeat="card in ctrl.arrays[$index]" value="card.value" suit="card.suit"></card>
+          <button type="button" class="btn btn-default" ng-click="ctrl.select($index)" ng-show="!ctrl.isSelected" ng-disabled="ctrl.isEmpty(stack, true)">SELECT</button>
+          <button type="button" class="btn btn-primary" ng-click="ctrl.place($index)" ng-show="ctrl.isSelected" ng-disabled="ctrl.isEmpty(stack, true)">PLACE</button>
+          <card ng-repeat="card in stack" value="card.value" suit="card.suit"></card>
         </div>
         <div class="col-xs-2"></div>
       </div>

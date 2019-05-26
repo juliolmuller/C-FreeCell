@@ -3,7 +3,7 @@
  * Class to build objects as stack data structure.
  * @class
  * @author Julio Muller & Aurelio Matsunaga
- * @version 1.1.0
+ * @version 1.1.1
  */
 class Stack {
 
@@ -75,24 +75,5 @@ class Stack {
       if (prop != '_next')
         item[prop] = aux[prop]
     return aux
-  }
-
-  /**
-   * Converts the custom stack structure into a traditional array.
-   * @returns {Array}
-   */
-  toArray() {
-    const arr = []
-    if (!this.items)
-      return arr
-    let aux = this.items
-    let index = 0
-    do {
-      arr.unshift(Object.assign({}, aux))
-      delete arr[index]._next
-      aux = aux._next
-      index++
-    } while (aux !== undefined)
-    return arr
   }
 }

@@ -1,9 +1,16 @@
 
 body {
-  background-image: url("../img/table_pattern.jpg");
+  background-image: url('../img/table_pattern.jpg');
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.my-logo {
+  height: 100px;
+  margin-top: 30px;
+  background: url('../img/logo-text.png') no-repeat;
+  background-size: 100%;
 }
 
 .my-stack {
@@ -20,11 +27,15 @@ body {
   font-size: xx-large;
   font-weight: bold;
   vertical-align: middle;
-  border-radius: 3px;
+  border-radius: 8px;
 }
 
 .my-card-empty {
   background-color: rgb(0, 0, 0, 0.2);
+}
+
+.my-cell {
+  border: 2px dotted #111;
 }
 
 .my-card-value {
@@ -33,7 +44,7 @@ body {
 
 .my-card-suit {
   margin-top: -10px;
-  max-height: 40px;
+  max-height: 32px;
 }
 
 .my-card-black {
