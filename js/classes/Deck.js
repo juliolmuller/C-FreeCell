@@ -22,8 +22,8 @@ class Deck extends Stack {
   shuffle() {
     this.items = undefined
     const cards = new Array(Deck.QUANTITY)
-    Deck.SUITS.forEach(suit => {
-      Deck.VALUES.forEach(value => {
+    Card.SUITS.forEach(suit => {
+      Card.VALUES.forEach(value => {
         while (true) {
           let random = Math.floor(Math.random() * Deck.QUANTITY)
           if (!cards[random]) {
@@ -35,18 +35,6 @@ class Deck extends Stack {
     })
     cards.forEach(card => this.push(card))
   }
-
-  /**
-   * Returns the available values for the cards
-   */
-  static get VALUES() { return ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K'] }
-  static set VALUES(v) {}
-
-  /**
-   * Returns the available suits for the cards
-   */
-  static get SUITS() { return ['diamonds', 'spades', 'hearts', 'clubs'] }
-  static set SUITS(v) {}
 
   /**
    * Returns the amount of cards available in the deck.
