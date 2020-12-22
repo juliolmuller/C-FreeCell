@@ -1,0 +1,23 @@
+{
+  "env": {
+    "es6": true,
+    "browser": true
+  },
+  "extends": [
+    "@lacussoft"
+  ],
+  "ignorePatterns": [
+    "docs/",
+    "public/"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "rules": {
+    "no-magic-numbers": "off",
+    "no-param-reassign": "off",
+    "no-return-assign": "off",
+    "no-underscore-dangle": ["error", { "allow": ["_next"] }]
+  }
+}
