@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Aurelio S. Matsunaga" />
+    <meta name="author" content="Julio L. Muller" />
+    <title>
+      Freecell Neves JS
+    </title>
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="styles/bundle.css" />
+    <script src="scripts/bundle.js"></script>
+  </head>
+  <body ng-app="myApplication" ng-controller="myController as ctrl">
+    <div class="my-victory">
+      <img class="my-victory-msg" src="assets/images/neves-won.jpg" alt="Neves Picture">
+    </div>
+    <main>
+
+      <!-- Top board cells -->
+      <div class="row">
+        <div class="col-sm-1"></div>
+
+        <!-- Free cells -->
+        <div class="col-sm-4">
+          <div class="row">
+            <div class="col-3" ng-repeat="stack in ctrl.freeCells">
+              <div class="my-stack">
+                <button type="button" class="btn btn-success" ng-click="ctrl.select(stack, $index, 'freecell')" ng-show="!ctrl.isSelected" ng-disabled="ctrl.isEmpty(stack, true)">SELECT</button>
+                <button type="button" class="btn btn-primary" ng-click="ctrl.place($index, 'freecell')" ng-show="ctrl.isSelected" ng-disabled="!ctrl.isEmpty(stack, true)">PLACE</button>
+                <card obj="ctrl.lastOf(stack)" is-cell="true"></card>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Logo -->
+        <div class="col-sm-2 my-logo"></div>
+
+        <!-- Deposit cells -->
+        <div class="col-sm-4">
+          <div class="row">
+            <div class="col-3" ng-repeat="stack in ctrl.deposits">
+              <div class="my-stack">
+                <button type="button" class="btn btn-success" ng-click="ctrl.select(stack, $index, 'deposit')" ng-show="!ctrl.isSelected" ng-disabled="ctrl.isEmpty(stack, true)">SELECT</button>
+                <button type="button" class="btn btn-primary" ng-click="ctrl.place($index, 'deposit')" ng-show="ctrl.isSelected" ng-disabled="!ctrl.isPlacable(stack, $index, true)">PLACE</button>
+                <card obj="ctrl.lastOf(stack)" is-cell="true"></card>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cards stacks -->
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="my-stack col-1" ng-repeat="stack in ctrl.stacks">
+          <button type="button" class="btn btn-success" ng-click="ctrl.select(stack, $index)" ng-show="!ctrl.isSelected" ng-disabled="ctrl.isEmpty(stack)">SELECT</button>
+          <button type="button" class="btn btn-primary" ng-click="ctrl.place($index)" ng-show="ctrl.isSelected" ng-disabled="!ctrl.isPlacable(stack, $index)">PLACE</button>
+          <card ng-repeat="card in stack" obj="card"></card>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
